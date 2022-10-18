@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+    <title>Register</title>
+    <style>
+        @charset "ISO-8859-1";
+
+        .btn {
+            color:black;
+            height:40px;
+            width: 120px;
+            font-family:cursive;
+            font-size: 18px;
+            background-color:aquamarine;
+            position: absolute;
+            top: 585px;
+            left: 725px;
+
+        }
+        .btn:hover{
+            cursor: pointer;
+            color:white;
+            background-color: black;
+        }
+        .center-fit{
+            margin-left: 300px;
+            margin-top: 30px;
+        }
+
+
+    </style>
+
+    <script>
+        //function to extract tokens from hash from url
+        function onLoad(){
+            var url = new URL(window.location.href).hash.substr(1)
+            var hash = url.split('&')
+            var hashLenght = hash.length
+            response = {}
+            token = hash[0].split('=')
+            //for(let i = 0; i < hashLenght; i++){
+            //    temp = hash[i]
+            //    token = temp.split('=')
+            //    response[token[0]] = token[1]
+            //}
+        }
+
+        //function to call api gateway of aws
+        function callApiGateway(){
+            var xhttp = new XMLHttpRequest()
+            xhttp.onload = function() {
+                console.log(this.responseText)
+            }
+            xhttp.open("POST", "https://2q42g4lcu7.execute-api.eu-central-1.amazonaws.com/Dev/registerParticipants");
+            //xhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
+            //xhttp.setRequestHeader("Access-Control-Allow-Headers", '*');
+            //xhttp.setRequestHeader("Access-Control-Allow-Methods", '*');
+            xhttp.setRequestHeader('Authorization','eyJraWQiOiJUMWJPekx6TUQ3dCsxR0VVQ3liQW1YdXlZYmdcL01Vb2lvSlJIdyt6OWNWUT0iLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiYzctVkhRelZwaDk2dDBYZmQyNmpuZyIsInN1YiI6ImRhNDgwNWE2LWFkNGYtNDgyMi05NTA5LTUwNWE5Y2UwZmZiMCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuZXUtY2VudHJhbC0xLmFtYXpvbmF3cy5jb21cL2V1LWNlbnRyYWwtMV9TdUI5ZFZCWG0iLCJwaG9uZV9udW1iZXJfdmVyaWZpZWQiOnRydWUsImNvZ25pdG86dXNlcm5hbWUiOiJzdWtyaXRpdmFybWEiLCJhdWQiOiIyNDhraDVjNW5yc2o4MW84MXN2YWN2ajl1biIsImV2ZW50X2lkIjoiZGI5ZTVhODktYjAwOC00MDA0LWFjODAtY2VlOTQyNGJkMmUzIiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2NjM5MzEwNjAsInBob25lX251bWJlciI6Iis5MTg3ODkxOTY1MzkiLCJleHAiOjE2NjM5MzQ2NjAsImlhdCI6MTY2MzkzMTA2MCwianRpIjoiMGMxZTM3NDktMjk1Zi00ZDAwLTg4NGItMzA4MTliNDhkYjRhIiwiZW1haWwiOiJzdWtyaXRpLnZhcm1hQG1lcmNlZGVzLWJlbnouY29tIn0.E_yG8Chnyh7LgLuRSRPlia5cWFZRts2NMkO1G-i1nC5htQ4BN8uiQAwcPT1cB32kGJC7tRMDAuMLBNv_o0YY8pbednNex9e9WXBLmIZrjoeG7dfHqKdkDNhKC4YVqZhnadm-QFJe__FDWxcHUbIGbm-C1sCFH5FEtF7qp16vKdULxlQDxoba1Wahlo8qQD8DKS59PhiufBXHNtzthpOU8UX5ArR5wT6YnNbO0MGGZMcz92h8aDD3_avVRgoJ4_dH8gKFj1rXuyEN70c-UyOTMpZOEvbY3cTnPFrHtCgw_fD2oZzoZsK6ZshceGM1gBAyWotxzb09PW6C-NKb_5qXeg')
+            xhttp.send(token[1]);
+            console.log(token[1])
+        }
+    </script>
+
+</head>
+<body onload="onLoad()">
+    <div class="center-fit">
+        <img src="https://amg-event-registration-bucket.s3.eu-central-1.amazonaws.com/eventBanner.png" alt="eventBanner">
+        <button class="btn" onclick="callApiGateway()">Register</button>
+    </div>
+
+</body>
