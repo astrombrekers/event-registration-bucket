@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+    <title>Event</title>
+    <link rel="stylesheet" href="https://amg-event-registration-bucket.s3.eu-central-1.amazonaws.com/register-now/style.css">
+    <script src="https://amg-event-registration-bucket.s3.eu-central-1.amazonaws.com/register-now/scriptFile.js"></script>
+</head>
+
+<body>
+    <div id="eventElementsBox">
+        <p class="eventElements">Event ID: <span id="elementEventId"></span></p>
+        <p class="eventElements">Event Name: <span id="elementEventName"></span></p>
+        <p class="eventElements">Location: <span id="elementEventLocation"></span></p>
+        <p class="eventElements">Start Date: <span id="elementEventStartDate"></span></p>
+        <p class="eventElements">End Date: <span id="elementEventEndDate"></span></p>
+        <p class="eventElements">Experience: <span id="elementEventExperience"></span></p>
+        <p class="eventElements">Cars: <span id="elementEventCars"></span></p>
+        <p class="eventElements">Level: <span id="elementEventLevel"></span></p>
+        <button class="btn eventElements" onclick="callMailApiGateway()">Register</button>
+    </div>
+</body>

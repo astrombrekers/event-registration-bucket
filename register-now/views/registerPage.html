@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="https://amg-event-registration-bucket.s3.eu-central-1.amazonaws.com/register-now/style.css">
+    <script src="https://amg-event-registration-bucket.s3.eu-central-1.amazonaws.com/register-now/scriptFile.js"></script>
+</head>
+
+<body id="registerBody" onload="getRegisterPage()">
+    <!-- <div id="indexBody">
+        <div class="center-fit">
+            <img src="https://amg-event-registration-bucket.s3.eu-central-1.amazonaws.com/register-now/views/eventBanner.png" alt="eventBanner">
+            <button class="btn" id="regBtn" onclick="callMailApiGateway()">Register</button>
+        </div>
+        <button class="btn" id="signOutBtn" onclick="signOut()">Sign Out</button>
+    </div> -->
+    <div id="getEventPage">
+            <div id="eventElementsBox">
+                <p class="eventElements">Event ID: <span id="elementEventId" class="spanEventElements"></span></p>
+                <p class="eventElements">Event Name: <span id="elementEventName" class="spanEventElements"></span></p>
+                <p class="eventElements">Location: <span id="elementEventLocation" class="spanEventElements"></span></p>
+                <p class="eventElements">Start Date: <span id="elementEventStartDate" class="spanEventElements"></span></p>
+                <p class="eventElements">End Date: <span id="elementEventEndDate" class="spanEventElements"></span></p>
+                <p class="eventElements">Experience: <span id="elementEventExperience" class="spanEventElements"></span></p>
+                <p class="eventElements">Cars: <span id="elementEventCars" class="spanEventElements"></span></p>
+                <p class="eventElements">Level: <span id="elementEventLevel" class="spanEventElements"></span></p>
+                <button class="btn eventElements" onclick="callMailApiGateway()">Register</button><br><br><br>
+                <button class="btn eventElements" onclick="closeGetEvent()">Back</button>
+            </div>
+    </div>
+    
+</body>
